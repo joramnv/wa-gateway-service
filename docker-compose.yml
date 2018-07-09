@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+    wa-gateway-service:
+        container_name: wa-gateway
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8090:8090"
+        networks:
+            - wa-discovery-service_bridge_network
+        environment:
+            - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery.wa:8273/eureka
+        restart: always
+
+networks:
+    wa-discovery-service_bridge_network:
+        external: true

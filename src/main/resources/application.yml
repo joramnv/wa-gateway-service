@@ -1,0 +1,22 @@
+server:
+    port: ${PORT:8090}
+
+spring:
+    application:
+        name: weekly-achievements-gateway-service
+
+logging:
+    level:
+        org.springframework.cloud.netflix.zuul: TRACE
+
+zuul:
+    routes:
+        weekly-achievements-application:
+            path: /waa/**
+            sensitiveHeaders:
+            serviceId: weekly-achievements-application
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8273/eureka/
