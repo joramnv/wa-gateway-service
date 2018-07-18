@@ -11,10 +11,10 @@ logging:
 
 zuul:
     routes:
-        weekly-achievements-application:
-            path: /waa/**
+        weekly-achievements-core-service:
+            path: /wacs/**
             sensitiveHeaders:
-            serviceId: weekly-achievements-application
+            serviceId: weekly-achievements-core-service
 
 eureka:
     client:
